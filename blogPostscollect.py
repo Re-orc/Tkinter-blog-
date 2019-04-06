@@ -22,11 +22,8 @@ class test():
         self.Text = tk.Entry(self.window)#, textvariable=)
         self.Text1 = tk.Text(self.window)
         self.Text1.config(width=60,height=10)
-        #self.Text1.insert(tk.END,'')#textbox 출력
         self.Text.place(relx=0.22,rely=0.04)
         self.Text1.place(relx=0.01,rely=0.2)
-        #self.Text2 = tk.Entry(self.window)
-        #self.Text2.place(relx=0.25,rely=0.19)
 
     def StartButton(self):
         button = tk.Button(self.window,text ='Start',width=5,height=1,command=self.print_content)#command 눌렀을때 이벤트발생
@@ -37,7 +34,6 @@ class test():
         #starButton 눌렀을때 출력
     def print_content(self):
         content = self.Text.get()
-        #content2 = self.Text2.get()
         driver = webdriver.Chrome('./chdr')
         driver.get('https://search.naver.com/search.naver?where=post&sm=tab_jum&query='+content)
         for i in range(len(driver.find_elements_by_partial_link_text('blog.naver.com'))):
